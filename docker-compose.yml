@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:15
+    container_name: prism2_spring 
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: main
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: prism 
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:
